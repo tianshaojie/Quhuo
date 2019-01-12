@@ -6,4 +6,15 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
+
+    <string-array name="modules">
+        <item>app</item>
+        <!--<item>app-support</item>-->
+        <!--<item>module-ugc</item>-->
+        <!--<item>module-facetime</item>-->
+        <!--<item>module-video</item>-->
+        <!--<item>module-video-music</item>-->
+        <!--<item>library-payment</item>-->
+    </string-array>
+
 </resources>

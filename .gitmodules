@@ -1,0 +1,6 @@
+[submodule "library"]
+	path = library
+	url = git@github.com:tianshaojie/android-library.git
+[submodule "library-web"]
+	path = library-web
+	url = git@github.com:tianshaojie/android-library-web.git
