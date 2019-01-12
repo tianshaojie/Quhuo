@@ -1,4 +1,4 @@
-package cn.skyui;
+package cn.skyui.app;
 
 import android.app.Application;
 import android.text.TextUtils;
@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
-import cn.skyui.library.LibraryInitManager;
+import cn.skyui.app.library.LibraryInitManager;
 
 public class App extends Application {
 
