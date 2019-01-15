@@ -1,0 +1,20 @@
+<resources>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <!-- Splash直接设置背景，防止启动黑屏 -->
+    <style name="AppTheme.SplashTheme" parent="AppTheme.NoActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowBackground">@mipmap/splash_bg</item>
+
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+
+        <!--<item name="android:windowFullscreen">true</item>-->
+    </style>
+</resources>

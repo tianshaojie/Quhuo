@@ -4,7 +4,7 @@ android {
     compileSdkVersion project.COMPILE_SDK_VERSION as int
 
     defaultConfig {
-        applicationId "com.yuzhi.fine"
+        applicationId "cn.skyui.app"
         minSdkVersion project.MIN_SDK_VERSION as int
         targetSdkVersion project.TARGET_SDK_VERSION as int
 
@@ -13,13 +13,34 @@ android {
 
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-        buildConfigField 'boolean', 'isDebug', 'true'
     }
 
-    buildTypes {
+    signingConfigs {
+        debug {
+            keyAlias 'debug'
+            keyPassword '11118888'
+            storeFile file('keystore/debug.jks')
+            storePassword '11118888'
+        }
         release {
+            keyAlias 'debug'
+            keyPassword '11118888'
+            storeFile file('keystore/debug.jks')
+            storePassword '11118888'
+        }
+    }
+    buildTypes {
+        debug {
             minifyEnabled false
+            debuggable true
+            buildConfigField 'boolean', 'isDebug', 'true'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled true
+            debuggable false
+            buildConfigField 'boolean', 'isDebug', 'false'
+            signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
@@ -32,10 +53,25 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    dexOptions {
+        // 是否支持大工程模式
+        jumboMode = true
+        // 预编译
+        preDexLibraries = true
+        // 线程数
+        threadCount = 8
+    }
+
+    aaptOptions {
+        // 停用 PNG 处理
+        cruncherEnabled false
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation project(':library-web:library')
     implementation project(':library:library')
+    annotationProcessor 'com.chenenyu.router:compiler:1.5.1'
+    implementation project(':app-support')
 }
