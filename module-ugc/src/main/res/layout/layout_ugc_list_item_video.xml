@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_40"
+        android:layout_marginLeft="@dimen/space_13"
+        android:layout_marginRight="@dimen/space_5"
+        android:layout_marginTop="@dimen/space_10">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="@dimen/space_40"
+            android:layout_height="@dimen/space_40"
+            android:background="@drawable/ic_account_circle_white_24dp" />
+
+
+        <TextView
+            android:id="@+id/textNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_1"
+            android:layout_toRightOf="@+id/imgAvatar"
+            android:text="鲸鱼宝宝"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_15" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textNickname"
+            android:layout_marginBottom="@dimen/space_1"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="1分钟前"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_12" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imgMore"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/colorPrimary"
+            android:background="?android:attr/selectableItemBackground"
+            app:srcCompat="@drawable/ic_more_vert_black_24dp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:layout_marginTop="@dimen/space_8"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_14"
+        tools:text="测试文字" />
+
+    <RelativeLayout
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:layout_marginTop="@dimen/space_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:baselineAligned="false"
+        android:clipChildren="false"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgCover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/common_bg_border"
+            android:minHeight="@dimen/space_150"
+            android:minWidth="@dimen/space_150"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_default_image" />
+
+        <FrameLayout
+            android:id="@+id/layoutPlay"
+            android:layout_width="@dimen/space_40"
+            android:layout_height="@dimen/space_40"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="-16dp"
+            android:background="@drawable/common_circle_trans_bg_40dp">
+
+            <ImageView
+                android:layout_width="@dimen/space_20"
+                android:layout_height="@dimen/space_20"
+                android:layout_gravity="center"
+                android:tint="@color/white"
+                app:srcCompat="@drawable/ic_play_arrow_black_24dp" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/split_color" />
+
+</LinearLayout>
+
+
+
+
+
+
+

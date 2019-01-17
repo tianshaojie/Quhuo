@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_report"
+        android:title="举报"
+        android:icon="@drawable/ic_error_outline_black_24dp"
+        app:showAsAction="collapseActionView" />
+
+    <!--<item-->
+        <!--android:id="@+id/action_share"-->
+        <!--android:icon="@drawable/ic_share_black_24dp"-->
+        <!--android:title="分享"-->
+        <!--app:showAsAction="collapseActionView" />-->
+
+    <!--app:showAsAction="always"-->
+    <!--app:showAsAction="collapseActionView"-->
+</menu>

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary">
+
+    <cn.skyui.module.ugc.widget.VideoView
+        android:id="@+id/videoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:lf_liteVideo_isDetail="true"
+        app:lf_liteVideo_looping="true"
+        app:lf_liteVideo_scaleType="fitRoom"
+        app:lf_liteVideo_utType="detail" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:background="@color/transparent"
+        android:minHeight="@dimen/toolbar_height"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:popupTheme="@style/Theme.Toolbar.OverflowMenuTheme"
+        app:theme="@style/Theme.Toolbar">
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="@dimen/space_100"
+        android:layout_marginRight="@dimen/space_2"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/space_2">
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:clipChildren="false"
+            android:layout_marginBottom="@dimen/space_18">
+
+            <ImageView
+                android:layout_centerHorizontal="true"
+                android:id="@+id/imgAvatar"
+                android:layout_width="43dp"
+                android:layout_height="43dp"
+                android:background="@drawable/common_circle_bg_30dp" />
+
+            <FrameLayout
+                android:id="@+id/layoutAttention"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true">
+
+                <View
+                    android:layout_width="@dimen/space_10"
+                    android:layout_height="@dimen/space_10"
+                    android:layout_gravity="center"
+                    android:background="@drawable/common_circle_bg_20dp" />
+
+                <ImageView
+                    android:id="@+id/imgAttention"
+                    android:layout_width="@dimen/space_20"
+                    android:layout_height="@dimen/space_20"
+                    android:layout_gravity="center"
+                    android:tint="@color/colorAccent"
+                    app:srcCompat="@drawable/ic_add_circle_black_24dp" />
+
+            </FrameLayout>
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btnLike"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_5"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawableTop="@drawable/ic_favorite_white_32dp"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:paddingBottom="@dimen/space_5"
+            android:paddingTop="@dimen/space_5"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_12" />
+
+        <Button
+            android:id="@+id/btnPV"
+            android:layout_width="58dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_7"
+            android:background="?android:attr/selectableItemBackground"
+            android:drawablePadding="0dp"
+            android:drawableTop="@drawable/ic_visibility_white_32dp"
+            android:gravity="center_horizontal"
+            android:includeFontPadding="false"
+            android:paddingBottom="@dimen/space_5"
+            android:paddingTop="@dimen/space_5"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_12" />
+
+
+        <!--<Button-->
+            <!--android:id="@+id/btnShare"-->
+            <!--android:layout_width="58dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="?android:attr/selectableItemBackground"-->
+            <!--android:drawableTop="@drawable/ic_share_white_32dp"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:includeFontPadding="false"-->
+            <!--android:paddingBottom="@dimen/space_5"-->
+            <!--android:paddingTop="@dimen/space_5"-->
+            <!--android:text="0"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/text_size_12" />-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="@dimen/space_12"
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginStart="@dimen/space_15"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/space_2"
+            android:includeFontPadding="false"
+            android:text="昵称"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_15" />
+
+        <TextView
+            android:id="@+id/textId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_3"
+            android:includeFontPadding="false"
+            android:text="ID: 12345"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_size_11" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_facetime"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/space_12"
+        android:layout_marginRight="@dimen/space_15"
+        android:background="@drawable/common_btn_weixin_bg_selector"
+        android:drawableLeft="@drawable/ic_videocam_white_24dp"
+        android:drawablePadding="@dimen/space_5"
+        android:drawableTint="@color/white"
+        android:paddingLeft="@dimen/space_15"
+        android:paddingRight="@dimen/space_15"
+        android:text="与她视频"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_11" />
+
+
+</RelativeLayout>

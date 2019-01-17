@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="NineGridImageView">
+        <attr format="dimension" name="singleImgSize"/>
+        <attr format="dimension" name="imgGap"/>
+        <attr format="integer" name="maxSize"/>
+        <attr format="enum" name="showStyle">
+            <enum name="grid" value="0"/>
+            <enum name="fill" value="1"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="LF_lite_video_view">
+        <attr name="lf_liteVideo_scaleType">
+            <enum name="centerCrop" value="1" />
+            <enum name="fitCenter" value="2" />
+            <enum name="fitRoom" value="3" />
+        </attr>
+
+        <attr name="lf_liteVideo_utType">
+            <enum name="attention" value="100" />
+            <enum name="personal" value="101" />
+            <enum name="my" value="102" />
+            <enum name="detail" value="103" />
+        </attr>
+
+        <attr name="lf_liteVideo_isDetail" format="boolean" />
+        <attr name="lf_liteVideo_mute" format="boolean" />
+        <attr name="lf_liteVideo_looping" format="boolean" />
+    </declare-styleable>
+
+</resources>

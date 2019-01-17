@@ -1,0 +1,28 @@
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:color="?android:colorControlHighlight"
+    tools:targetApi="lollipop">
+    <item android:id="@android:id/mask">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/gray" />
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <!-- 填充色 -->
+            <solid android:color="@color/colorAccent" />
+            <!-- 渐变 -->
+            <gradient
+                android:startColor="@color/Pink400"
+                android:endColor="@color/colorAccent"
+                android:angle="0" />
+            <!--<stroke-->
+                <!--android:width="0.5dp"-->
+                <!--android:color="@color/gray_light"/>-->
+            <!-- 圆角 -->
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+</ripple>

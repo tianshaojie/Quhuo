@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="@dimen/space_80"
+        android:layout_height="@dimen/space_80"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_80"
+        android:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textVersion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imgLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/space_10"
+        android:text="V1.0.0"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_15" />
+
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_below="@+id/textVersion"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:layout_gravity="center_horizontal"-->
+        <!--android:layout_marginTop="@dimen/space_10"-->
+        <!--android:text="tianshaojie@gmail.com"-->
+        <!--android:textColor="@color/colorPrimary"-->
+        <!--android:textSize="@dimen/text_size_15" />-->
+
+    <TextView
+        android:id="@+id/copyright"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textVersion"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="@dimen/space_10"
+        android:text="Copyright © 2018"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/text_size_13" />
+
+</RelativeLayout>

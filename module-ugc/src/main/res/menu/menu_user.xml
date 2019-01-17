@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/action_publish_photo"
+        android:icon="@drawable/ic_add_a_photo_white_24dp"
+        android:title="发布图文"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/action_chat"
+        android:title="聊天"
+        android:icon="@drawable/ic_chat_white_24dp"
+        app:showAsAction="always" />
+
+    <!--<item-->
+        <!--android:id="@+id/action_qrcode"-->
+        <!--android:title="二维码"-->
+        <!--android:icon="@drawable/ic_qrcode_white_24dp"-->
+        <!--app:showAsAction="always" />-->
+
+    <item
+        android:id="@+id/action_report"
+        android:title="举报"
+        android:icon="@drawable/ic_error_outline_black_24dp"
+        app:showAsAction="collapseActionView" />
+
+    <item
+        android:id="@+id/action_black"
+        android:title="加入黑名单"
+        android:icon="@drawable/ic_add_to_black_black_24dp"
+        app:showAsAction="collapseActionView" />
+
+    <!--<item-->
+        <!--android:id="@+id/action_share"-->
+        <!--android:icon="@drawable/ic_share_black_24dp"-->
+        <!--android:title="分享"-->
+        <!--app:showAsAction="collapseActionView" />-->
+
+    <!--app:showAsAction="always"-->
+    <!--app:showAsAction="collapseActionView"-->
+</menu>

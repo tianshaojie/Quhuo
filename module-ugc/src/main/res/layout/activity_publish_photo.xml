@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar" />
+
+    <EditText
+        android:id="@+id/textTitle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_80"
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:layout_marginTop="@dimen/space_15"
+        android:background="@color/transparent"
+        android:gravity="left|top"
+        android:hint="说点儿什么..."
+        android:maxLength="100"
+        android:textColor="@color/colorPrimary"
+        android:textColorHint="@color/gray"
+        android:textSize="@dimen/text_size_14" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:layout_marginTop="@dimen/space_10">
+
+        <ImageView
+            android:id="@+id/imgPhotoTips"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_photo_size_select_actual_primary_24dp" />
+
+        <TextView
+            android:id="@+id/textPhotoCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/space_8"
+            android:layout_toRightOf="@+id/imgPhotoTips"
+            android:includeFontPadding="false"
+            android:text="0 / 9"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_13" />
+
+        <TextView
+            android:id="@+id/textContentTips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:text="您还可以输入100个字"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_13" />
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:layout_marginTop="@dimen/space_10">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:id="@+id/layoutLocation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:layout_marginTop="@dimen/space_10">
+
+        <ImageView
+            android:id="@+id/imgLocation"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_location_on_primary_24dp" />
+
+        <TextView
+            android:id="@+id/textLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imgLocation"
+            android:layout_toLeftOf="@+id/imgLocationClose"
+            android:layout_marginLeft="@dimen/space_6"
+            android:layout_marginRight="@dimen/space_15"
+            android:layout_marginTop="@dimen/space_10"
+            android:text="定位中..."
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_13" />
+
+        <ImageView
+            android:id="@+id/imgLocationClose"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/colorPrimary"
+            app:srcCompat="@drawable/ic_close_primary_24dp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

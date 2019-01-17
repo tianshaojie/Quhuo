@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/toolbar_height"
+        android:minHeight="@dimen/toolbar_height"
+        android:background="@color/colorPrimary"
+        app:contentInsetStart="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetRight="0dp"
+        app:popupTheme="@style/Theme.Toolbar.OverflowMenuTheme"
+        app:theme="@style/Theme.Toolbar">
+
+        <!--android:layout_height="?attr/actionBarSize"-->
+        <!--android:minHeight="?attr/actionBarSize"-->
+        <!-- 标题居中 -->
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:textSize="@dimen/toolbar_text_size"
+            android:textColor="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:maxLength="20"
+            android:text="Title" />
+
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipeLayout"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+    <!-- 包裹FrameLayout，避免Button默认在最上层-->
+    <FrameLayout
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/space_10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/btn_facetime"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:paddingLeft="@dimen/space_25"
+            android:paddingRight="@dimen/space_25"
+            android:drawableLeft="@drawable/ic_videocam_white_24dp"
+            android:drawablePadding="@dimen/space_5"
+            android:drawableTint="@color/white"
+            android:background="@drawable/common_btn_weixin_bg_selector"
+            android:text="与她视频"
+            android:textSize="@dimen/text_size_13"
+            android:textColor="@color/white" />
+    </FrameLayout>
+
+    <cn.skyui.library.image.viewer.PhotoPagerViewerLayout
+        android:id="@+id/photo_pager_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <cn.skyui.library.image.viewer.PhotoViewerLayout
+        android:id="@+id/photo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</RelativeLayout>

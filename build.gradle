@@ -28,6 +28,12 @@ allprojects {
             url "https://jitpack.io"
         }
         mavenLocal()
+
+        flatDir {
+            dirs 'libs'
+            project(':library:library').file('libs')
+            project(':module-ugc').file('libs')
+        }
     }
 }
 

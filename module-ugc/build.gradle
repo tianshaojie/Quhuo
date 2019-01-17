@@ -38,16 +38,23 @@ android {
 
 }
 
-repositories {
-    flatDir {
-        dirs 'libs'
-    }
-}
-
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     annotationProcessor 'com.chenenyu.router:compiler:1.5.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.6.1'
     annotationProcessor "com.github.hotchemi:permissionsdispatcher-processor:3.1.0"
+
     api project(':library:library')
+    api project(':library-web:library')
+
+    api 'de.greenrobot:eventbus:2.4.0'
+    // 67KB
+    api 'tv.danmaku.ijk.media:ijkplayer-java:0.8.8'
+    // 1.7MB
+    api 'tv.danmaku.ijk.media:ijkplayer-armv7a:0.8.8'
+
+    api(name:'library-player-release', ext:'aar')
+    api(name:'library-cache-release', ext:'aar')
+    api(name:'library-image-release', ext:'aar')
+    api(name:'library-bottomsheet-release', ext:'aar')
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <!-- 填充色 -->
+            <solid android:color="@color/Pink500" />
+            <!-- 渐变 -->
+            <gradient
+                android:startColor="@color/Purple500"
+                android:endColor="@color/Pink500"
+                android:angle="0" />
+            <stroke
+                android:width="0.5dp"
+                android:color="@color/gray_light"/>
+            <!-- 圆角 -->
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+
+    <item>
+        <shape>
+            <!-- 填充色 -->
+            <solid android:color="@color/colorAccent" />
+            <!-- 渐变 -->
+            <gradient
+                android:startColor="@color/Pink400"
+                android:endColor="@color/colorAccent"
+                android:angle="0" />
+            <!--<stroke-->
+                <!--android:width="0.5dp"-->
+                <!--android:color="@color/gray_light"/>-->
+            <!-- 圆角 -->
+            <corners android:radius="30dp" />
+        </shape>
+    </item>
+
+    <!--<item android:drawable="@drawable/common_btn_bg_pressed" android:state_pressed="true" />-->
+    <!--<item android:drawable="@drawable/common_btn_bg_normal" />-->
+</selector>

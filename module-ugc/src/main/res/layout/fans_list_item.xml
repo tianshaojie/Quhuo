@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:clickable="true"
+    android:background="?android:attr/selectableItemBackground"
+    android:layout_width="match_parent"
+    android:layout_height="70dp">
+
+    <ImageView
+        android:id="@+id/imgAvatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/space_16"
+        android:layout_marginStart="@dimen/space_16"
+        android:background="@drawable/ic_account_circle_white_24dp"
+        android:scaleType="centerCrop" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/space_16"
+        android:layout_toEndOf="@+id/imgAvatar"
+        android:layout_toRightOf="@+id/imgAvatar"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginStart="@dimen/space_16">
+
+        <TextView
+            android:id="@+id/textNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昵称"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_15" />
+
+        <TextView
+            android:id="@+id/textId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/space_3"
+            android:text="ID: 12345"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/text_size_12" />
+    </LinearLayout>
+
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/btnAttention"
+        android:layout_width="60dp"
+        android:layout_height="@dimen/space_30"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/space_15"
+        android:background="@drawable/common_btn_bg_selector"
+        android:text="已关注"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_12"/>
+
+    <View
+        android:layout_marginLeft="16dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray_light"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"/>
+</RelativeLayout>
+
+

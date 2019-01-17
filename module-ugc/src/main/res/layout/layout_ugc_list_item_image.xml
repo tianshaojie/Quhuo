@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_40"
+        android:layout_marginLeft="@dimen/space_13"
+        android:layout_marginRight="@dimen/space_5"
+        android:layout_marginTop="@dimen/space_10">
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="@dimen/space_40"
+            android:layout_height="@dimen/space_40"
+            android:background="@drawable/ic_account_circle_white_24dp" />
+
+
+        <TextView
+            android:id="@+id/textNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/space_10"
+            android:layout_marginTop="@dimen/space_1"
+            android:layout_toRightOf="@+id/imgAvatar"
+            android:text="鲸鱼宝宝"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_15" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textNickname"
+            android:layout_marginBottom="@dimen/space_1"
+            android:layout_alignParentBottom="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="1分钟前"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_12" />
+
+            <TextView
+                android:id="@+id/textPoinname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textAge"
+                android:layout_alignBottom="@+id/textAge"
+                android:layout_marginLeft="@dimen/space_5"
+                android:layout_toEndOf="@+id/textAge"
+                android:layout_toRightOf="@+id/textAge"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:text="北京"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_size_12" />
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imgSex"-->
+                <!--android:layout_width="14dp"-->
+                <!--android:layout_height="14dp"-->
+                <!--app:srcCompat="@drawable/ic_gender_female" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textAge"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignTop="@+id/imgSex"-->
+                <!--android:layout_marginLeft="@dimen/space_5"-->
+                <!--android:layout_toEndOf="@+id/imgSex"-->
+                <!--android:layout_toRightOf="@+id/imgSex"-->
+                <!--android:text="18岁"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/textCity"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignBaseline="@+id/textAge"-->
+                <!--android:layout_alignBottom="@+id/textAge"-->
+                <!--android:layout_marginLeft="@dimen/space_5"-->
+                <!--android:layout_toEndOf="@+id/textAge"-->
+                <!--android:layout_toRightOf="@+id/textAge"-->
+                <!--android:text="北京"-->
+                <!--android:textColor="@color/colorPrimary"-->
+                <!--android:textSize="@dimen/text_size_12" />-->
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imgMore"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:tint="@color/colorPrimary"
+            android:background="?android:attr/selectableItemBackground"
+            app:srcCompat="@drawable/ic_more_vert_black_24dp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:layout_marginTop="@dimen/space_8"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/text_size_14"
+        tools:text="测试文字" />
+
+    <cn.skyui.module.ugc.widget.ninegridimageview.NineGridImageView
+        android:id="@+id/ngl_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_15"
+        android:layout_marginRight="@dimen/space_15"
+        android:layout_marginTop="@dimen/space_8"
+        app:imgGap="3dp"
+        app:showStyle="grid"
+        app:singleImgSize="500dp" />
+
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginTop="@dimen/space_8"-->
+        <!--android:layout_marginLeft="@dimen/space_15"-->
+        <!--android:layout_marginRight="@dimen/space_15"-->
+        <!--android:orientation="horizontal">-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/textTime"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:text="1分钟前"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--android:textSize="@dimen/text_size_12" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/btnLike"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="@dimen/space_10"-->
+            <!--android:layout_toLeftOf="@+id/btnPV"-->
+            <!--android:background="?android:attr/selectableItemBackground"-->
+            <!--android:drawableLeft="@drawaic_favorite_border_primary_24dp24dp"-->
+            <!--android:drawablePadding="3dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:includeFontPadding="false"-->
+            <!--android:padding="@dimen/space_5"-->
+            <!--android:text="0"-->
+            <!--android:textColor="@color/gray"-->
+            <!--android:textSize="@dimen/text_size_12" />-->
+
+        <!--<TextView-->
+            <!--android:id="@+id/btnPV"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="@dimen/space_3"-->
+            <!--android:background="?android:attr/selectableItemBackground"-->
+            <!--android:drawableLeft="@drawable/ic_visibility_gray_24dp"-->
+            <!--android:drawablePadding="4dp"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:includeFontPadding="false"-->
+            <!--android:padding="@dimen/space_8"-->
+            <!--android:text="0"-->
+            <!--android:textColor="@color/gray"-->
+            <!--android:textSize="@dimen/text_size_12" />-->
+
+    <!--</RelativeLayout>-->
+
+    <View
+        android:layout_marginTop="@dimen/space_10"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/split_color" />
+
+</LinearLayout>
+
+
