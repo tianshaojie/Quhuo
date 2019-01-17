@@ -1,11 +1,9 @@
 <resources>
-    <string name="app_name">android-practice</string>
-
+    <string name="app_name">Practice</string>
     <string-array name="modules">
         <item>app</item>
         <item>app-support</item>
         <item>module-user</item>
         <item>module-ugc</item>
     </string-array>
-
 </resources>
