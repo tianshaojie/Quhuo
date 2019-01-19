@@ -30,7 +30,6 @@ import cn.skyui.library.utils.Utils;
 import cn.skyui.module.ugc.data.ApiService;
 import cn.skyui.module.ugc.helper.UiHelper;
 import cn.skyui.module.ugc.R;
-import io.rong.imkit.ImHelper;
 
 /**
  * Created by tiansj on 2018/5/7.
@@ -112,7 +111,6 @@ public class SettingActivity extends BaseSwipeBackActivity {
     private void logout() {
         User.getInstance().clear();
         MMKV.defaultMMKV().removeValueForKey(Constants.SharedPreferences.USER);
-        ImHelper.logout();
         RetrofitFactory.createService(ApiService.class)
                 .logout()
                 .compose(RxSchedulers.io2main())

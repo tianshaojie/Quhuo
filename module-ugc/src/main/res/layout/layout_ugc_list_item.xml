@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         android:background="@drawable/common_bg_border"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_default_image" />
+        app:srcCompat="@drawable/ic_default_image" />
 
     <FrameLayout
         android:id="@+id/layoutPlay"

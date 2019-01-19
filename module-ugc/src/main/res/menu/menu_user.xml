@@ -8,11 +8,11 @@
         android:title="发布图文"
         app:showAsAction="always" />
 
-    <item
-        android:id="@+id/action_chat"
-        android:title="聊天"
-        android:icon="@drawable/ic_chat_white_24dp"
-        app:showAsAction="always" />
+    <!--<item-->
+        <!--android:id="@+id/action_chat"-->
+        <!--android:title="聊天"-->
+        <!--android:icon="@drawable/ic_chat_white_24dp"-->
+        <!--app:showAsAction="always" />-->
 
     <!--<item-->
         <!--android:id="@+id/action_qrcode"-->

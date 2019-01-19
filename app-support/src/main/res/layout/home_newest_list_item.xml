@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cn.skyui.module.ugc.widget.SquareRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@null"
+    android:clipChildren="false"
+    android:orientation="horizontal"
+    android:baselineAligned="false">
+
+    <ImageView
+        android:id="@+id/avatar"
+        android:background="@drawable/ic_default_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"/>
+
+    <RelativeLayout
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/home_item_bg"
+        android:paddingTop="@dimen/space_5"
+        android:paddingBottom="@dimen/space_3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textNickname"
+            android:layout_marginLeft="@dimen/space_5"
+            android:textSize="@dimen/text_size_13"
+            android:textColor="#F0FFFFFF"
+            android:text="昵称"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@id/textAge"
+            android:layout_toRightOf="@+id/textNickname"
+            android:layout_marginLeft="@dimen/space_5"
+            android:textSize="@dimen/text_size_11"
+            android:textColor="#AAFFFFFF"
+            android:text="20"
+            android:layout_alignBottom="@+id/textNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <ImageView
+            android:id="@+id/imgStatus"
+            android:layout_marginRight="@dimen/space_3"
+            android:layout_alignBottom="@+id/textNickname"
+            app:srcCompat="@drawable/ic_fiber_manual_record_gray_24dp"
+            android:layout_alignParentRight="true"
+            android:layout_width="@dimen/space_12"
+            android:layout_height="@dimen/space_12" />
+
+    </RelativeLayout>
+
+</cn.skyui.module.ugc.widget.SquareRelativeLayout>
+
+

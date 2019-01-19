@@ -1,3 +1,3 @@
-include ':app', ':app-support', ':module-user', ':module-ugc'
+include ':app', ':app-support', ':module-user', ':module-ugc', ':library-oss', ':library-aar', ':library-player', ':library-image', ':library-bottomsheet', ':library-citypicker', ':library-cache'
 include ':library:library'
 include ':library-web:library'

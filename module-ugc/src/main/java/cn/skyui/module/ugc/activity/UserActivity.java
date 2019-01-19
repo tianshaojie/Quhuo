@@ -5,7 +5,6 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -35,38 +34,6 @@ import com.chad.library.adapter.base.BaseViewHolder;
 import com.chenenyu.router.Router;
 import com.chenenyu.router.annotation.Route;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-import cn.skyui.library.base.activity.BaseSwipeBackActivity;
-import cn.skyui.library.bottomsheet.BottomSheet;
-import cn.skyui.library.data.constant.Constants;
-import cn.skyui.library.data.constant.ImageConstants;
-import cn.skyui.library.data.model.User;
-import cn.skyui.library.data.model.UserVO;
-import cn.skyui.library.event.LoginSuccessEvent;
-import cn.skyui.library.event.ugc.UgcEvent;
-import cn.skyui.library.glide.GlideApp;
-import cn.skyui.library.glide.GlideCircleTransform;
-import cn.skyui.library.http.HttpObserver;
-import cn.skyui.library.http.RetrofitFactory;
-import cn.skyui.library.http.RxSchedulers;
-import cn.skyui.library.http.exception.ApiException;
-import cn.skyui.library.http.exception.RetryWhenException;
-import cn.skyui.library.utils.ScreenUtils;
-import cn.skyui.library.utils.SizeUtils;
-import cn.skyui.library.utils.StringUtils;
-import cn.skyui.library.utils.TimeUtils;
-import cn.skyui.library.utils.ToastUtils;
-import cn.skyui.module.ugc.R;
-import cn.skyui.library.image.viewer.PhotoViewerLayout;
-import cn.skyui.library.image.viewer.PhotoPagerViewerLayout;
-import cn.skyui.module.ugc.data.ApiService;
-import cn.skyui.module.ugc.data.constant.Constants.UGC;
-import cn.skyui.module.ugc.data.model.ugc.UgcAdapterItem;
-import cn.skyui.module.ugc.data.model.ugc.UgcItemVO;
-import cn.skyui.module.ugc.helper.UiHelper;
-import cn.skyui.module.ugc.widget.BackgroundDrawable;
-import cn.skyui.module.ugc.widget.ninegridimageview.ItemImageClickListener;
-import cn.skyui.module.ugc.widget.ninegridimageview.NineGridImageView;
-import cn.skyui.module.ugc.widget.ninegridimageview.NineGridImageViewAdapter;
 
 import java.lang.reflect.Method;
 import java.text.SimpleDateFormat;
@@ -74,8 +41,38 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import cn.skyui.library.base.activity.BaseSwipeBackActivity;
+import cn.skyui.library.bottomsheet.BottomSheet;
+import cn.skyui.library.data.constant.Constants;
+import cn.skyui.library.data.constant.ImageConstants;
+import cn.skyui.library.data.model.User;
+import cn.skyui.library.data.model.UserVO;
+import cn.skyui.library.glide.GlideApp;
+import cn.skyui.library.glide.GlideCircleTransform;
+import cn.skyui.library.http.HttpObserver;
+import cn.skyui.library.http.RetrofitFactory;
+import cn.skyui.library.http.RxSchedulers;
+import cn.skyui.library.http.exception.ApiException;
+import cn.skyui.library.http.exception.RetryWhenException;
+import cn.skyui.library.image.viewer.PhotoPagerViewerLayout;
+import cn.skyui.library.image.viewer.PhotoViewerLayout;
+import cn.skyui.library.utils.ScreenUtils;
+import cn.skyui.library.utils.SizeUtils;
+import cn.skyui.library.utils.StringUtils;
+import cn.skyui.library.utils.TimeUtils;
+import cn.skyui.library.utils.ToastUtils;
+import cn.skyui.module.ugc.R;
+import cn.skyui.module.ugc.data.ApiService;
+import cn.skyui.module.ugc.data.constant.Constants.UGC;
+import cn.skyui.module.ugc.data.model.ugc.UgcAdapterItem;
+import cn.skyui.module.ugc.data.model.ugc.UgcItemVO;
+import cn.skyui.module.ugc.event.UgcEvent;
+import cn.skyui.module.ugc.helper.UiHelper;
+import cn.skyui.module.ugc.widget.BackgroundDrawable;
+import cn.skyui.module.ugc.widget.ninegridimageview.ItemImageClickListener;
+import cn.skyui.module.ugc.widget.ninegridimageview.NineGridImageView;
+import cn.skyui.module.ugc.widget.ninegridimageview.NineGridImageViewAdapter;
 import de.greenrobot.event.EventBus;
-import io.rong.imkit.ImHelper;
 
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
@@ -424,7 +421,6 @@ public class UserActivity extends BaseSwipeBackActivity {
                     @Override
                     protected void onSuccess(UserVO user) {
                         user.setId(uid);
-                        ImHelper.refreshUserInfoCache(String.valueOf(uid), user.getNickname(), user.getAvatar());
 
                         isBlack = user.getIsBlack();
                         String blackTitle = isBlack ? "取消黑名单" : "加入黑名单";
@@ -640,12 +636,10 @@ public class UserActivity extends BaseSwipeBackActivity {
         // 动态设置ToolBar状态
         if(uid == User.getInstance().userId) {
             menu.findItem(R.id.action_publish_photo).setVisible(true);
-            menu.findItem(R.id.action_chat).setVisible(false);
             menu.findItem(R.id.action_report).setVisible(false);
             menu.findItem(R.id.action_black).setVisible(false);
         } else {
             menu.findItem(R.id.action_publish_photo).setVisible(false);
-            menu.findItem(R.id.action_chat).setVisible(true);
             menu.findItem(R.id.action_report).setVisible(true);
             menu.findItem(R.id.action_black).setVisible(true);
         }
@@ -655,13 +649,14 @@ public class UserActivity extends BaseSwipeBackActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_chat) {
-            ImHelper.startConversation(mActivity, String.valueOf(uid), nickname);
-        }
+//        if (id == R.id.action_chat) {
+//            ImHelper.startConversation(mActivity, String.valueOf(uid), nickname);
+//        }
 //        else if (id == R.id.action_qrcode) {
 //            ToastUtils.showShort("Coming soon");
 //        }
-        else if (id == R.id.action_report) {
+//        else
+        if (id == R.id.action_report) {
             httpReport(null);
         } else if (id == R.id.action_black) {
             if(isBlack) {
@@ -774,6 +769,12 @@ public class UserActivity extends BaseSwipeBackActivity {
             photoViewerLayout.hide();
         } else {
             super.onBackPressed();
+        }
+    }
+
+    public void registerEventBus() {
+        if(!EventBus.getDefault().isRegistered(mActivity)) {
+            EventBus.getDefault().register(mActivity);
         }
     }
 }
