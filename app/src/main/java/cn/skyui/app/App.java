@@ -1,6 +1,8 @@
 package cn.skyui.app;
 
 import android.app.Application;
+import android.content.Context;
+import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 import com.orhanobut.logger.Logger;
@@ -12,6 +14,12 @@ import java.io.IOException;
 import cn.skyui.library.LibraryInitManager;
 
 public class App extends Application {
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+        MultiDex.install(this);
+    }
 
     @Override
     public void onCreate() {
