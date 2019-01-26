@@ -1,21 +1,18 @@
 package cn.skyui.module.support;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.chenenyu.router.annotation.Route;
 
+import cn.skyui.library.base.activity.BaseActivity;
 import cn.skyui.module.support.fragment.HomeFragment;
 
 /**
@@ -23,15 +20,9 @@ import cn.skyui.module.support.fragment.HomeFragment;
  * @date 2019/1/15
  */
 @Route("/support/main")
-public class MainActivity extends AppCompatActivity
+public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private static final String TAB_INDEX_KEY = "tabIndex";
-    private static final String[] FRAGMENT_TAGS = new String[]{
-            "HomeFragment", "FavoriteFragment", "MessageFragment", "MemberFragment"
-    };
-
-    private int tabIndex = 0;
     private FragmentManager fragmentManager;
 
     @Override
@@ -44,10 +35,6 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(view -> Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
-
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -57,43 +44,8 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        showFragment(0);
+        fragmentManager.beginTransaction().add(R.id.fragment_container, new HomeFragment(), "HomeFragment").commit();
     }
-
-    private void showFragment(int index) {
-        // 隐藏旧Tab
-        if (tabIndex != index) {
-            Fragment prevFragment = fragmentManager.findFragmentByTag(FRAGMENT_TAGS[tabIndex]);
-            if (prevFragment != null) {
-                fragmentManager.beginTransaction().hide(prevFragment).commit();
-            }
-        }
-        // 显示新Tab
-        Fragment fragment = fragmentManager.findFragmentByTag(FRAGMENT_TAGS[index]);
-        if (fragment != null && fragment.isAdded()) {
-            fragmentManager.beginTransaction().show(fragment).commit();
-        } else {
-            fragment = instantFragment(index);
-            fragmentManager.beginTransaction().add(R.id.fragment_container, fragment, FRAGMENT_TAGS[index]).commit();
-        }
-        tabIndex = index;
-    }
-
-    private Fragment instantFragment(int currIndex) {
-        switch (currIndex) {
-            case 0:
-                return new HomeFragment();
-//            case 1:
-//                return FavoriteFragment.newInstance();
-//            case 2:
-//                return MessageFragment.newInstance();
-//            case 3:
-//                return MemberFragment.newInstance();
-            default:
-                return new HomeFragment();
-        }
-    }
-
 
     @Override
     public void onBackPressed() {

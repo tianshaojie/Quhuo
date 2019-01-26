@@ -30,7 +30,8 @@
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:drawablePadding="5dp"
-        android:drawableTop="@drawable/play"
+        android:drawableTint="@color/white"
+        android:drawableTop="@drawable/ic_play_arrow_black_24dp"
         android:gravity="center"
         android:textColor="#FFFFFF"
         android:textSize="@dimen/text_size_12" />
