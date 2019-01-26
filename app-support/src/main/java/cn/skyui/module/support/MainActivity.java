@@ -1,6 +1,9 @@
 package cn.skyui.module.support;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -9,12 +12,27 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.chenenyu.router.annotation.Route;
 
 import cn.skyui.library.base.activity.BaseActivity;
+import cn.skyui.library.data.constant.ImageConstants;
+import cn.skyui.library.data.model.User;
+import cn.skyui.library.data.model.UserDetailVO;
+import cn.skyui.library.glide.GlideApp;
+import cn.skyui.library.glide.GlideCircleTransform;
+import cn.skyui.library.http.HttpObserver;
+import cn.skyui.library.http.RetrofitFactory;
+import cn.skyui.library.http.RxSchedulers;
+import cn.skyui.module.support.data.ApiService;
 import cn.skyui.module.support.fragment.HomeFragment;
 import cn.skyui.module.support.helper.UiHelper;
+import jp.wasabeef.blurry.Blurry;
 
 /**
  * @author tianshaojie
@@ -24,15 +42,26 @@ import cn.skyui.module.support.helper.UiHelper;
 public class MainActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private FragmentManager fragmentManager;
+    ImageView mImgAvatar;
+    TextView mTextUserId;
+    TextView mTextNickname;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initView();
+        loadData();
+        showHomeFragment();
+    }
 
-        fragmentManager = getSupportFragmentManager();
+    private void showHomeFragment() {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().add(R.id.fragment_container, new HomeFragment(), "HomeFragment").commit();
+    }
 
+    private void initView() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -45,9 +74,61 @@ public class MainActivity extends BaseActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        fragmentManager.beginTransaction().add(R.id.fragment_container, new HomeFragment(), "HomeFragment").commit();
+        View headerLayout = navigationView.getHeaderView(0);
+        mImgAvatar = headerLayout.findViewById(R.id.iv_avatar);
+        mTextUserId = headerLayout.findViewById(R.id.tv_uid);
+        mTextUserId.setText(String.format("酷酷号: %s", User.getInstance().userId));
+        mTextNickname = headerLayout.findViewById(R.id.tv_nickname);
+        mImgAvatar.setOnClickListener(v -> UiHelper.showProfileActivity(mActivity));
     }
 
+    private void loadData() {
+        RetrofitFactory.createService(ApiService.class)
+                .getUserDetailInfo(User.getInstance().userId)
+                .compose(RxSchedulers.io2main())
+                .compose(bindToLifecycle())
+                .subscribe(new HttpObserver<UserDetailVO>() {
+                    @Override
+                    protected void onSuccess(UserDetailVO response) {
+                        User.getInstance().detail = response;
+                        updateView();
+                    }
+                });
+    }
+
+    private String avatarUrl = "";
+    private void updateView() {
+        UserDetailVO detail = User.getInstance().detail;
+        // 比较内存，User.getInstance().detail被外部修改再更新View
+        if (!detail.getUser().getAvatar().equals(avatarUrl)) {
+            GlideApp.with(mActivity)
+                    .load(ImageConstants.getSmallUrl(detail.getUser().getAvatar()))
+                    .placeholder(R.drawable.ic_account_circle_white_24dp)
+                    .optionalTransform(new GlideCircleTransform(getResources().getColor(R.color.white), 6))
+                    .into(mImgAvatar);
+            GlideApp.with(mActivity)
+                    .asBitmap()
+                    .load(ImageConstants.getSmallUrl(detail.getUser().getAvatar()))
+                    .into(new SimpleTarget<Bitmap>(50, 50) {
+                        @Override
+                        public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
+//                            Blurry.with(mActivity).radius(10).from(resource)
+//                                    .into(zoomView.findViewById(R.id.iv_zoom));
+                        }
+                    });
+        }
+
+        mTextNickname.setText(detail.getUser().getNickname());
+
+//        mTextRecharge.setText(String.valueOf(detail.getAccount().getAvailableRechargeCoin()));
+//        mTextIncome.setText(String.valueOf(detail.getAccount().getAvailableIncomeCoin()));
+//        mTextMyUgc.setText(String.valueOf(detail.getUser().getUgcCount()));
+//        mTextMyLikes.setText(String.valueOf(detail.getUser().getLikesCount()));
+//        mTextMyAttention.setText(String.valueOf(detail.getUser().getAttentionCount()));
+//        mTextMyFans.setText(String.valueOf(detail.getUser().getFansCount()));
+
+        avatarUrl = detail.getUser().getAvatar();
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -60,19 +141,14 @@ public class MainActivity extends BaseActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_search) {
             UiHelper.showSearchActivity(mActivity);
             return true;
