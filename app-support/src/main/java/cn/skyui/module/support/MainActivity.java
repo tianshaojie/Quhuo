@@ -14,6 +14,7 @@ import com.chenenyu.router.annotation.Route;
 
 import cn.skyui.library.base.activity.BaseActivity;
 import cn.skyui.module.support.fragment.HomeFragment;
+import cn.skyui.module.support.helper.UiHelper;
 
 /**
  * @author tianshaojie
@@ -72,7 +73,8 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_search) {
+            UiHelper.showSearchActivity(mActivity);
             return true;
         }
 
