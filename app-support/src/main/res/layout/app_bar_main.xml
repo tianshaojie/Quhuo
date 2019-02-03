@@ -16,6 +16,7 @@
         app:contentInsetLeft="0dp"
         app:contentInsetRight="0dp"
         app:contentInsetStart="0dp"
+        android:gravity="center"
         app:popupTheme="@style/Theme.Toolbar.OverflowMenuTheme"
         app:theme="@style/Theme.Toolbar">
 
@@ -23,7 +24,7 @@
             android:id="@+id/magic_indicator"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/toolbar_height"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center" />
 
     </android.support.v7.widget.Toolbar>
 

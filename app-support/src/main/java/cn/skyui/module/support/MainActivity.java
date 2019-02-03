@@ -77,7 +77,6 @@ public class MainActivity extends BaseActivity
         View headerLayout = navigationView.getHeaderView(0);
         mImgAvatar = headerLayout.findViewById(R.id.iv_avatar);
         mTextUserId = headerLayout.findViewById(R.id.tv_uid);
-        mTextUserId.setText(String.format("酷酷号: %s", User.getInstance().userId));
         mTextNickname = headerLayout.findViewById(R.id.tv_nickname);
         mImgAvatar.setOnClickListener(v -> UiHelper.showProfileActivity(mActivity));
     }
@@ -119,6 +118,7 @@ public class MainActivity extends BaseActivity
         }
 
         mTextNickname.setText(detail.getUser().getNickname());
+        mTextUserId.setText(String.format("酷聊号: %s", User.getInstance().userId));
 
 //        mTextRecharge.setText(String.valueOf(detail.getAccount().getAvailableRechargeCoin()));
 //        mTextIncome.setText(String.valueOf(detail.getAccount().getAvailableIncomeCoin()));

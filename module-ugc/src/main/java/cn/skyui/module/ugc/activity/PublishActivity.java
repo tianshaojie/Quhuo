@@ -153,6 +153,10 @@ public class PublishActivity extends BaseActivity {
                         LocationUtils.getInstance().startLocation(new LocationUtils.OnLocationChangedListener() {
                             @Override
                             public void onSuccess(AMapLocation mapLocation) {
+                                if(mapLocation == null || StringUtils.isEmpty(mapLocation.getCityCode())) {
+                                    mTextLocation.setText("定位失败");
+                                    return;
+                                }
                                 Logger.i("location success");
                                 mTextLocation.setText(mapLocation.getCity() + " ∙ " + mapLocation.getStreet());
                                 userLocation = mapLocation;

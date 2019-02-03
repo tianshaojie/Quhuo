@@ -70,6 +70,7 @@ public class HomeFragment extends BaseFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         mViewPager.setAdapter(new HomeAdapter(getChildFragmentManager()));
+        mViewPager.setOffscreenPageLimit(3);
         initMagicIndicator();
         // mViewPager.setCurrentItem(1);
     }

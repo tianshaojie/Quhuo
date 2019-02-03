@@ -42,6 +42,7 @@ import cn.skyui.library.http.exception.ApiException;
 import cn.skyui.library.utils.BeanMapUtils;
 import cn.skyui.library.utils.LocationUtils;
 import cn.skyui.library.utils.SizeUtils;
+import cn.skyui.library.utils.StringUtils;
 import cn.skyui.library.utils.TimeUtils;
 import cn.skyui.library.utils.ToastUtils;
 import cn.skyui.library.widget.recyclerview.GridSpacingItemDecoration;
@@ -172,19 +173,21 @@ public class NearbyUserFragment extends BaseFragment {
         LocationUtils.getInstance().startLocation(new LocationUtils.OnLocationChangedListener() {
             @Override
             public void onSuccess(AMapLocation mapLocation) {
-                Logger.i("location success");
-                User.getInstance().location = JSON.parseObject(mapLocation.toStr(), UserLocation.class);
-                RetrofitFactory.createService(ApiService.class)
-                        .updateLocation(Base64.encodeToString(mapLocation.toStr().getBytes(), Base64.DEFAULT))
-                        .compose(bindToLifecycle())
-                        .observeOn(Schedulers.io())
-                        .subscribeOn(Schedulers.io())
-                        .subscribe(new HttpObserver<Void>() {
-                            @Override
-                            protected void onSuccess(Void response) {
-                                Logger.i("update user location success!");
-                            }
-                        });
+                if(mapLocation != null && StringUtils.isNotEmpty(mapLocation.getCityCode())) {
+                    Logger.i("location success");
+                    User.getInstance().location = JSON.parseObject(mapLocation.toStr(), UserLocation.class);
+                    RetrofitFactory.createService(ApiService.class)
+                            .updateLocation(Base64.encodeToString(mapLocation.toStr().getBytes(), Base64.DEFAULT))
+                            .compose(bindToLifecycle())
+                            .observeOn(Schedulers.io())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new HttpObserver<Void>() {
+                                @Override
+                                protected void onSuccess(Void response) {
+                                    Logger.i("update user location success!");
+                                }
+                            });
+                }
                 loadData();
             }
 

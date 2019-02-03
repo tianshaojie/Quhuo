@@ -101,11 +101,11 @@ public class NearbyFeedFragment extends BaseFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initData();
-        initView();
         if(!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().register(this);
         }
+        initData();
+        initView();
         if(userLocation != null) {
             loadData();
         } else {
@@ -173,19 +173,21 @@ public class NearbyFeedFragment extends BaseFragment {
         LocationUtils.getInstance().startLocation(new LocationUtils.OnLocationChangedListener() {
             @Override
             public void onSuccess(AMapLocation mapLocation) {
-                Logger.i("location success");
-                User.getInstance().location = JSON.parseObject(mapLocation.toStr(), UserLocation.class);
-                RetrofitFactory.createService(ApiService.class)
-                        .updateLocation(Base64.encodeToString(mapLocation.toStr().getBytes(), Base64.DEFAULT))
-                        .compose(bindToLifecycle())
-                        .observeOn(Schedulers.io())
-                        .subscribeOn(Schedulers.io())
-                        .subscribe(new HttpObserver<Void>() {
-                            @Override
-                            protected void onSuccess(Void response) {
-                                Logger.i("update user location success!");
-                            }
-                        });
+                if(mapLocation != null && StringUtils.isNotEmpty(mapLocation.getCityCode())) {
+                    Logger.i("location success");
+                    User.getInstance().location = JSON.parseObject(mapLocation.toStr(), UserLocation.class);
+                    RetrofitFactory.createService(ApiService.class)
+                            .updateLocation(Base64.encodeToString(mapLocation.toStr().getBytes(), Base64.DEFAULT))
+                            .compose(bindToLifecycle())
+                            .observeOn(Schedulers.io())
+                            .subscribeOn(Schedulers.io())
+                            .subscribe(new HttpObserver<Void>() {
+                                @Override
+                                protected void onSuccess(Void response) {
+                                    Logger.i("update user location success!");
+                                }
+                            });
+                }
                 loadData();
             }
 
@@ -198,6 +200,7 @@ public class NearbyFeedFragment extends BaseFragment {
     }
 
     private void loadData() {
+        Logger.e("nearby feed loadData-------------------");
         NearbyParam nearbyParam = new NearbyParam();
         nearbyParam.setUid(User.getInstance().userId);
         if(User.getInstance().location == null) {
