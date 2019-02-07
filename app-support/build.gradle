@@ -51,4 +51,8 @@ dependencies {
     implementation project(':library-web:library')
     implementation project(':library-image')
     implementation project(':library-bottomsheet')
+
+    implementation ('com.github.michael-rapp:android-util:1.20.2') {
+        transitive = false
+    }
 }
