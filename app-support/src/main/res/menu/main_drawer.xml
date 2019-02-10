@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group>
+    <group
+        android:id="@+id/profile_group"
+        android:checkableBehavior="none">
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_storage_black_24dp"
@@ -18,17 +20,26 @@
             android:title="我的关注" />
         <item
             android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_loyalty_black_24dp"
+            android:icon="@drawable/ic_fans"
             android:title="我的粉丝" />
+    </group>
 
+    <group
+        android:id="@+id/setting_group"
+        android:checkableBehavior="none">
+        <!--<item-->
+            <!--android:id="@+id/nav_share"-->
+            <!--android:icon="@drawable/ic_menu_share"-->
+            <!--android:title="分享" />-->
         <item
-            android:id="@+id/nav_share"
-            android:icon="@drawable/ic_menu_share"
-            android:title="分享" />
-        <item
-            android:id="@+id/nav_send"
+            android:id="@+id/nav_setting"
             android:icon="@drawable/ic_settings_black_24dp"
             android:title="设置" />
+
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info_black_24dp"
+            android:title="关于" />
     </group>
 
     <!--<item android:title="Communicate">-->
