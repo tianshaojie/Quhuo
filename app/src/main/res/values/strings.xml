@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Practice</string>
+    <string name="app_name">趣火</string>
     <string-array name="modules">
         <item>app</item>
         <item>app-support</item>

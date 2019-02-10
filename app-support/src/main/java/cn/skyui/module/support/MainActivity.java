@@ -118,7 +118,7 @@ public class MainActivity extends BaseActivity
         }
 
         mTextNickname.setText(detail.getUser().getNickname());
-        mTextUserId.setText(String.format("酷聊号: %s", User.getInstance().userId));
+        mTextUserId.setText(String.format("趣火号: %s", User.getInstance().userId));
 
 //        mTextRecharge.setText(String.valueOf(detail.getAccount().getAvailableRechargeCoin()));
 //        mTextIncome.setText(String.valueOf(detail.getAccount().getAvailableIncomeCoin()));
