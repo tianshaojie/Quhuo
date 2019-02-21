@@ -7,6 +7,7 @@ import com.chenenyu.router.Router;
 import com.chenenyu.router.annotation.Route;
 
 import cn.skyui.library.base.activity.BaseActivity;
+import cn.skyui.library.data.model.User;
 import cn.skyui.library.web.service.WebViewPreLoadService;
 
 /**
@@ -25,12 +26,12 @@ public class SplashActivity extends Activity {
     }
 
     private void enter() {
-//        if(User.getInstance().isLogin) {
+        if(User.getInstance().isLogin) {
             Bundle bundle = getIntent().getExtras();
             Router.build("/support/main").with(bundle).go(this);
-//        } else {
-//            Router.build("/support/login").go(this);
-//        }
+        } else {
+            Router.build("/support/login").go(this);
+        }
         finish();
     }
 

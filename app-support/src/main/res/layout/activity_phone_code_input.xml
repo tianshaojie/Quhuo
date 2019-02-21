@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    android:orientation="vertical">
+
+
+    <include layout="@layout/toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/space_25"
+        android:layout_marginRight="@dimen/space_25"
+        android:layout_marginTop="@dimen/space_20"
+        android:orientation="horizontal">
+
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/text_phone_code"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_gravity="bottom"
+                android:hint="请输入验证码"
+                android:inputType="numberSigned"
+                android:maxLength="6"
+                android:textSize="@dimen/text_size_15" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/btn_sms"
+            android:layout_width="80dp"
+            android:layout_height="45dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="@dimen/space_10"
+            android:layout_marginRight="@dimen/space_5"
+            android:background="@null"
+            android:gravity="right|center_vertical"
+            android:padding="0dp"
+            android:text="重新获取"
+            android:textAllCaps="false"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_size_15" />
+
+        <!--android:background="@drawable/login_sms_bg"-->
+    </FrameLayout>
+
+
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="@dimen/space_20"
+        android:layout_marginRight="@dimen/space_20"
+        android:layout_marginTop="@dimen/space_20"
+        android:background="@drawable/common_btn_weixin_bg_selector"
+        android:text="登  录"
+        android:textColor="@color/white" />
+
+
+</LinearLayout>
