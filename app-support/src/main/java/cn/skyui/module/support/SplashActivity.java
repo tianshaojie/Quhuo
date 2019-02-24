@@ -21,8 +21,8 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         BaseActivity.APP_STATUS = BaseActivity.APP_STATUS_NORMAL;
         super.onCreate(savedInstanceState);
-        getWindow().getDecorView().postDelayed(this::enter, 500);
         WebViewPreLoadService.startHideService(this);
+        getWindow().getDecorView().postDelayed(this::enter, 0);
     }
 
     private void enter() {

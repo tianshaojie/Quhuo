@@ -173,7 +173,7 @@ public class RecommendV3Fragment extends BaseFragment {
                             mAdapter.removeAllHeaderView();
                             banners = response.getBanners();
                             if(banners != null && banners.size() > 0) {
-                                addHeaderView();
+//                                addHeaderView();
                             }
                             mAdapter.setNewData(list);
                         } else {

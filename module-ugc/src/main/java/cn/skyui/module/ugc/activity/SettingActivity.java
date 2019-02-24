@@ -104,8 +104,8 @@ public class SettingActivity extends BaseSwipeBackActivity {
 
         mLayoutAbout.setOnClickListener(v -> Router.build("about").go(mActivity));
 
-        mLayoutHelp = findViewById(R.id.layoutHelp);
-        mLayoutHelp.setOnClickListener(v -> UiHelper.showWebViewActivity(mActivity, RetrofitFactory.BASE_URL + "help.html"));
+//        mLayoutHelp = findViewById(R.id.layoutHelp);
+//        mLayoutHelp.setOnClickListener(v -> UiHelper.showWebViewActivity(mActivity, RetrofitFactory.BASE_URL + "help.html"));
     }
 
     private void logout() {

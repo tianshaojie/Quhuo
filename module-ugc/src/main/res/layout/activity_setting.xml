@@ -8,31 +8,31 @@
 
     <include layout="@layout/toolbar"/>
 
-    <RelativeLayout
-        android:id="@+id/layoutHelp"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:background="?android:attr/selectableItemBackground"
-        android:clickable="true">
+    <!--<RelativeLayout-->
+        <!--android:id="@+id/layoutHelp"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="48dp"-->
+        <!--android:background="?android:attr/selectableItemBackground"-->
+        <!--android:clickable="true">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="16dp"
-            android:text="帮助"
-            android:textColor="@color/colorPrimary"
-            android:textSize="@dimen/text_size_15" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:text="帮助"-->
+            <!--android:textColor="@color/colorPrimary"-->
+            <!--android:textSize="@dimen/text_size_15" />-->
 
-        <ImageView
-            android:layout_width="@dimen/space_20"
-            android:layout_height="@dimen/space_20"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/space_16"
-            android:tint="@color/colorPrimary"
-            app:srcCompat="@drawable/ic_arrow_right_gray_24dp" />
-    </RelativeLayout>
+        <!--<ImageView-->
+            <!--android:layout_width="@dimen/space_20"-->
+            <!--android:layout_height="@dimen/space_20"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginRight="@dimen/space_16"-->
+            <!--android:tint="@color/colorPrimary"-->
+            <!--app:srcCompat="@drawable/ic_arrow_right_gray_24dp" />-->
+    <!--</RelativeLayout>-->
 
     <View
         android:layout_width="match_parent"
