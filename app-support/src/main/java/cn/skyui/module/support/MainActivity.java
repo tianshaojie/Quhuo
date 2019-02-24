@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
+import com.chenenyu.router.Router;
 import com.chenenyu.router.annotation.Route;
 
 import cn.skyui.library.base.activity.BaseActivity;
@@ -164,17 +165,20 @@ public class MainActivity extends BaseActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            // Handle the camera action
+            UiHelper.showUserActivity(mActivity, User.getInstance().userId,
+                    User.getInstance().detail.getUser().getNickname(),
+                    User.getInstance().detail.getUser().getAvatar());
         } else if (id == R.id.nav_gallery) {
-
+            UiHelper.showUserLikesActivity(mActivity, User.getInstance().userId,
+                    User.getInstance().detail.getUser().getNickname());
         } else if (id == R.id.nav_slideshow) {
-
+            UiHelper.showFansActivity(mActivity, User.getInstance().userId, "", false);
         } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+            UiHelper.showFansActivity(mActivity, User.getInstance().userId, "", true);
+        } else if (id == R.id.nav_setting) {
+            UiHelper.showSettingActivity(mActivity);
+        } else if (id == R.id.nav_about) {
+            Router.build("about").go(mActivity);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

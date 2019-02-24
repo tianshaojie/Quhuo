@@ -64,6 +64,9 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
 
+        <activity android:name="cn.skyui.module.support.activity.PhoneInputActivity" android:label="手机登录" android:screenOrientation="portrait"/>
+        <activity android:name="cn.skyui.module.support.activity.PhoneCodeInputActivity" android:label="验证码" android:screenOrientation="portrait"/>
+
     </application>
 
 </manifest>

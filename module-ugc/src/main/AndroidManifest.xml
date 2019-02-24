@@ -14,11 +14,9 @@
         <activity android:name="cn.skyui.module.ugc.activity.LikesActivity" android:label="" android:screenOrientation="portrait"/>
         <activity android:name="cn.skyui.module.ugc.activity.PublishActivity" android:label="发布动态" android:screenOrientation="portrait"/>
         <activity android:name="cn.skyui.module.ugc.activity.SearchActivity" android:label="" android:screenOrientation="portrait"/>
-        <activity android:name="cn.skyui.module.ugc.activity.RichUserActivity" android:label="活跃土豪" android:screenOrientation="portrait"/>
         <activity android:name="cn.skyui.module.ugc.activity.SettingActivity" android:label="设置" android:screenOrientation="portrait"/>
         <activity android:name="cn.skyui.module.ugc.activity.BlacklistActivity" android:label="黑名单" android:screenOrientation="portrait"/>
         <activity android:name="cn.skyui.module.ugc.activity.AboutActivity" android:label="关于" android:screenOrientation="portrait"/>
-        <activity android:name="cn.skyui.module.ugc.activity.IncomeActivity" android:label="提现" android:screenOrientation="portrait"/>
     </application>
 
 </manifest>
