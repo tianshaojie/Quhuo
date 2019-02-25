@@ -12,6 +12,7 @@ public class FeedVO implements Serializable {
     private double distance;
     private long time;
     private String poiname;
+    private int nearbyType;
 
     public String getPoiname() {
         return poiname;
@@ -51,5 +52,13 @@ public class FeedVO implements Serializable {
 
     public void setTime(long time) {
         this.time = time;
+    }
+
+    public int getNearbyType() {
+        return nearbyType;
+    }
+
+    public void setNearbyType(int nearbyType) {
+        this.nearbyType = nearbyType;
     }
 }

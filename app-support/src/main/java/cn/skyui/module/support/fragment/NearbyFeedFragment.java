@@ -247,6 +247,7 @@ public class NearbyFeedFragment extends BaseFragment {
                                                 ? UgcAdapterItem.IMAGE : UgcAdapterItem.VIDEO);
                                 ugcAdapterItem.setUgcItem(itemVO);
                                 ugcAdapterItem.setUser(feedVO.getUser());
+                                ugcAdapterItem.setNearbyType(feedVO.getNearbyType());
                                 wrapList.add(ugcAdapterItem);
                             }
 
@@ -349,7 +350,11 @@ public class NearbyFeedFragment extends BaseFragment {
                     .into((ImageView) helper.getView(R.id.imgAvatar));
 
             TextView textViewDistance = helper.getView(R.id.textDistance);
-            if(item.getDistance() >= 0) {
+            // 0：附近5公里，1：同城
+            if(adapterItem.getNearbyType() == 1 && User.getInstance().location != null) {
+                textViewDistance.setText("同城");
+                textViewDistance.setVisibility(View.VISIBLE);
+            } else if(item.getDistance() > 0) {
                 textViewDistance.setVisibility(View.VISIBLE);
                 textViewDistance.setText(item.getDistance() + "KM");
             } else {

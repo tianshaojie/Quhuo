@@ -15,6 +15,7 @@ public class UgcAdapterItem implements MultiItemEntity {
 
     private SimpleUserVO user;
     private UgcItemVO ugcItem;
+    private int nearbyType;
 
     public UgcAdapterItem(int itemType) {
         this.itemType = itemType;
@@ -39,5 +40,13 @@ public class UgcAdapterItem implements MultiItemEntity {
 
     public void setUser(SimpleUserVO user) {
         this.user = user;
+    }
+
+    public int getNearbyType() {
+        return nearbyType;
+    }
+
+    public void setNearbyType(int nearbyType) {
+        this.nearbyType = nearbyType;
     }
 }
