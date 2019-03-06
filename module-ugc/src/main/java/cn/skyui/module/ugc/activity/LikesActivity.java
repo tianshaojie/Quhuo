@@ -18,6 +18,11 @@ import com.bumptech.glide.request.target.Target;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.chenenyu.router.annotation.Route;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import cn.skyui.library.base.activity.BaseSwipeBackActivity;
 import cn.skyui.library.data.constant.Constants;
 import cn.skyui.library.data.constant.ImageConstants;
@@ -28,17 +33,13 @@ import cn.skyui.library.http.RxSchedulers;
 import cn.skyui.library.http.exception.ApiException;
 import cn.skyui.library.image.viewer.PhotoPagerViewerLayout;
 import cn.skyui.library.utils.SizeUtils;
-import cn.skyui.library.widget.recyclerview.GridSpacingItemDecoration;
+import cn.skyui.library.widget.recyclerview.SpaceItemDecoration;
 import cn.skyui.module.ugc.R;
 import cn.skyui.module.ugc.data.ApiService;
 import cn.skyui.module.ugc.data.constant.Constants.UGC;
 import cn.skyui.module.ugc.data.model.ugc.UgcItemVO;
 import cn.skyui.module.ugc.data.model.ugc.UgcLikeVO;
 import cn.skyui.module.ugc.helper.UiHelper;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 /**
  * Created by tiansj on 2018/4/13.
@@ -88,7 +89,7 @@ public class LikesActivity extends BaseSwipeBackActivity {
         mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
 
         mRecyclerView.setLayoutManager(new GridLayoutManager(mActivity, 3, GridLayoutManager.VERTICAL, false));
-        mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(3, SizeUtils.dp2px(2f),false));
+        mRecyclerView.addItemDecoration(new SpaceItemDecoration(3, SizeUtils.dp2px(2f)));
 
         mAdapter = new BaseQuickAdapter<UgcLikeVO, BaseViewHolder>(R.layout.layout_ugc_list_item, null) {
             @Override

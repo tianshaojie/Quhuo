@@ -53,11 +53,11 @@ import cn.skyui.library.utils.SizeUtils;
 import cn.skyui.library.utils.StringUtils;
 import cn.skyui.library.utils.ToastUtils;
 import cn.skyui.library.widget.progress.ProgressDialog;
-import cn.skyui.library.widget.recyclerview.GridSpacingItemDecoration;
+import cn.skyui.library.widget.recyclerview.SpaceItemDecoration;
+import cn.skyui.module.ugc.R;
 import cn.skyui.module.ugc.data.ApiService;
 import cn.skyui.module.ugc.data.constant.Constants;
 import cn.skyui.module.ugc.data.model.ugc.PhotoItem;
-import cn.skyui.module.ugc.R;
 import cn.skyui.module.ugc.event.UgcEvent;
 import de.greenrobot.event.EventBus;
 
@@ -116,7 +116,7 @@ public class PublishActivity extends BaseActivity {
 
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new GridLayoutManager(mActivity, 3, GridLayoutManager.VERTICAL, false));
-        mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(3, SizeUtils.dp2px(2f), false));
+        mRecyclerView.addItemDecoration(new SpaceItemDecoration(3, SizeUtils.dp2px(2f)));
 
         multipleItemQuickAdapter = new MultipleItemQuickAdapter(photoItems);
         multipleItemQuickAdapter.openLoadAnimation(BaseQuickAdapter.ALPHAIN);

@@ -45,12 +45,12 @@ import cn.skyui.library.utils.SizeUtils;
 import cn.skyui.library.utils.StringUtils;
 import cn.skyui.library.utils.TimeUtils;
 import cn.skyui.library.utils.ToastUtils;
-import cn.skyui.library.widget.recyclerview.GridSpacingItemDecoration;
+import cn.skyui.library.widget.recyclerview.SpaceItemDecoration;
 import cn.skyui.module.support.R;
-import cn.skyui.module.support.helper.UiHelper;
-import cn.skyui.module.support.widget.loadmore.CustomLoadMoreView;
 import cn.skyui.module.support.data.ApiService;
 import cn.skyui.module.support.data.model.NearbyParam;
+import cn.skyui.module.support.helper.UiHelper;
+import cn.skyui.module.support.widget.loadmore.CustomLoadMoreView;
 import de.greenrobot.event.EventBus;
 import io.reactivex.schedulers.Schedulers;
 
@@ -109,7 +109,7 @@ public class NearbyUserFragment extends BaseFragment {
         mRecyclerView = view.findViewById(R.id.recyclerView);
         mSwipeRefreshLayout = view.findViewById(R.id.swipeLayout);
         mRecyclerView.setLayoutManager(new GridLayoutManager(mActivity, 2, GridLayoutManager.VERTICAL, false));
-        mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, SizeUtils.dp2px(3f),false));
+        mRecyclerView.addItemDecoration(new SpaceItemDecoration(2, SizeUtils.dp2px(2f)));
         mSwipeRefreshLayout.setColorSchemeColors(getResources().getColor(R.color.colorAccent));
 
         mAdapter = new BaseQuickAdapter<UserVO, BaseViewHolder>(R.layout.home_newest_list_item, null) {
