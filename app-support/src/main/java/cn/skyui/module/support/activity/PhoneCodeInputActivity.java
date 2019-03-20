@@ -120,8 +120,9 @@ public class PhoneCodeInputActivity extends BaseActivity {
     private void loginSuccess(LoginResponse response) {
 //        SPUtils.getInstance().put(Constants.SharedPreferences.USER, response.toString());
         MMKV.defaultMMKV().encode(Constants.SharedPreferences.USER, response.toString());
+        User.getInstance().init();
         ToastUtils.showShort("登录成功");
-        Logger.i(User.getInstance().init().token);
+        Logger.i(User.getInstance().token);
         KeyboardUtils.hideSoftInput(this);
         showMainActivity();
         EventBus.getDefault().post(new LoginSuccessEvent());
