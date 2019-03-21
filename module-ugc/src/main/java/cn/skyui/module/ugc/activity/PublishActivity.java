@@ -50,8 +50,8 @@ import cn.skyui.library.utils.LocationUtils;
 import cn.skyui.library.utils.SizeUtils;
 import cn.skyui.library.utils.StringUtils;
 import cn.skyui.library.utils.ToastUtils;
-import cn.skyui.library.utils.oss.UploadCallbackHandler;
-import cn.skyui.library.utils.oss.UploadClient;
+import cn.skyui.library.utils.oss.OssClient;
+import cn.skyui.library.utils.oss.UploadCallback;
 import cn.skyui.library.widget.progress.ProgressDialog;
 import cn.skyui.library.widget.recyclerview.SpaceItemDecoration;
 import cn.skyui.module.ugc.R;
@@ -280,7 +280,6 @@ public class PublishActivity extends BaseActivity {
 
     private HashMap<String, String> path2urlMap = new HashMap<>();
     private ProgressDialog progressDialog;
-    public static final String BASE_IMAGE_DOMAIN = "https://astatic.oss-cn-beijing.aliyuncs.com/";
     private void save() {
         if (imageItems == null || imageItems.size() == 0) {
             ToastUtils.showShort("至少选择一张图片");
@@ -314,10 +313,9 @@ public class PublishActivity extends BaseActivity {
         }
 
 
-        UploadClient.asyncUpload(file, new UploadCallbackHandler() {
+        OssClient.asyncUpload(file, new UploadCallback() {
             @Override
-            public void onSuccess(String objectKey) {
-                String url = BASE_IMAGE_DOMAIN + objectKey;
+            public void onSuccess(String url) {
                 path2urlMap.put(path, url);
                 Logger.d("[onSuccess] - " + url + " upload success!");
 

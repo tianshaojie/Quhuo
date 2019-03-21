@@ -1,3 +1,4 @@
 include ':app', ':app-support', ':module-user', ':module-ugc', ':library-player', ':library-image', ':library-bottomsheet', ':library-citypicker', ':library-cache'
 include ':library:library'
 include ':library-web:library'
+include ':library-oss:library'

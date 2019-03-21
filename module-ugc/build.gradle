@@ -58,7 +58,7 @@ dependencies {
     implementation project(':library-citypicker')
     implementation project(':library-image')
     implementation project(':library-cache')
-//    implementation project(':library-oss')
+    implementation project(':library-oss:library')
 
-    implementation 'cn.skyui:library-oss:1.0.0'
+//    implementation 'cn.skyui:library-oss:1.0.0'
 }

@@ -4,3 +4,6 @@
 [submodule "library-web"]
 	path = library-web
 	url = git@github.com:tianshaojie/android-library-web.git
+[submodule "library-oss"]
+	path = library-oss
+	url = git@github.com:tianshaojie/android-library-oss.git
