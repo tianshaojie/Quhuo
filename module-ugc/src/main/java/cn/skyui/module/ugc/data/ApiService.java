@@ -12,6 +12,7 @@ import cn.skyui.module.ugc.data.model.ugc.UgcItemVO;
 import cn.skyui.module.ugc.data.model.ugc.UgcLikeVO;
 import cn.skyui.module.ugc.data.model.user.SimpleUserVO;
 import io.reactivex.Observable;
+import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
@@ -24,6 +25,10 @@ import retrofit2.http.Query;
  */
 
 public interface ApiService {
+
+    // 注意返回值：在 Retrofit 2中，每个请求被包装成一个 Call 对象
+    @GET("v1/api1/aliyun/oss/token")
+    Call<HttpResponse> getOssToken();
 
     @GET("v1/api1/user/detail")
     Observable<HttpResponse<UserDetailVO>> getUserDetailInfo(@Query("uid") Long uid);
