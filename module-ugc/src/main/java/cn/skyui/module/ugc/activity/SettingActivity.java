@@ -117,13 +117,13 @@ public class SettingActivity extends BaseSwipeBackActivity {
                 .subscribe(new HttpObserver<Void>() {
                     @Override
                     protected void onSuccess(Void response) {
-                        Router.build("login").go(mActivity);
+                        Router.build("/support/login").go(mActivity);
                         finish();
                     }
 
                     @Override
                     protected void onFailure(ApiException e) {
-                        Router.build("login").go(mActivity);
+                        Router.build("/support/login").go(mActivity);
                         finish();
                     }
                 });
